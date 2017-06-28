@@ -41,7 +41,7 @@ public class Database {
 			//System.out.println(date.format(new Date((Long) jsonObject.get("timestamp"))));
 			//System.out.println(minute.format(new Date((Long) jsonObject.get("timestamp"))));
 			connection = getConnection();
-			String sql = "INSERT INTO `deif` (`ID`, `timestamp`, `datetime`, `minute`, `deifid`, `name`, `latitude`, `longitude`, `active_power_a`, `active_power_b`, `active_power_c`, `apparent_power_a`, `apparent_power_b`, `apparent_power_c`, `current_average`, `current_neutral`, `current_phase_a`, `current_phase_b`, `current_phase_c`, `frequency`, `reactive_power_a`, `reactive_power_b`, `reactive_power_c`, `voltage_a_n`, `voltage_b_n`, `voltage_c_n`) VALUES ";
+			String sql = "INSERT INTO `deif` (`ID`, `timestamp`, `datetime`, `minute`, `deifid`, `name`, `latitude`, `longitude`, `active_power_a`, `active_power_b`, `active_power_c`, `active_power_sum`, `apparent_power_a`, `apparent_power_b`, `apparent_power_c`, `current_average`, `current_neutral`, `current_phase_a`, `current_phase_b`, `current_phase_c`, `frequency`, `reactive_power_a`, `reactive_power_b`, `reactive_power_c`, `voltage_a_n`, `voltage_b_n`, `voltage_c_n`) VALUES ";
 
 			for (int i = 0; i < sendcache.size(); i++) {
 				if (i != 0)
@@ -67,6 +67,7 @@ public class Database {
 				if (measurements.containsKey("active_power_a")) sql = sql + ", '" + measurements.get("active_power_a") + "'"; else sql = sql + ", NULL";
 				if (measurements.containsKey("active_power_b")) sql = sql + ", '" + measurements.get("active_power_b") + "'"; else sql = sql + ", NULL";
 				if (measurements.containsKey("active_power_c")) sql = sql + ", '" + measurements.get("active_power_c") + "'"; else sql = sql + ", NULL";
+				if (measurements.containsKey("active_power_sum")) sql = sql + ", '" + measurements.get("active_power_sum") + "'"; else sql = sql + ", NULL";
 				if (measurements.containsKey("apparent_power_a")) sql = sql + ", '" + measurements.get("apparent_power_a") + "'"; else sql = sql + ", NULL";
 				if (measurements.containsKey("apparent_power_b")) sql = sql + ", '" + measurements.get("apparent_power_b") + "'"; else sql = sql + ", NULL";
 				if (measurements.containsKey("apparent_power_c")) sql = sql + ", '" + measurements.get("apparent_power_c") + "'"; else sql = sql + ", NULL";
