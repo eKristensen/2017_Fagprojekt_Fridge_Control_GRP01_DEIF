@@ -31,14 +31,15 @@ public class App {
         dataChannel.queueBind(dataQueue, "evbe.json", "#");
 
         Consumer dataConsumer = new Listener(dataChannel);
-        dataChannel.basicConsume(dataQueue, true, dataConsumer); // comment this line to receive less noise in output while testing commands
-        
+        dataChannel.basicConsume(dataQueue, true, dataConsumer); // comment this line to receive less noise in output
+                                                                 // while testing commands
 
-        while (true);
-//        dataChannel.close();
-//        statusChannel.close();
-//        controlChannel.close();
-//        connection.close();
+        while (true)
+            ;
+        // dataChannel.close();
+        // statusChannel.close();
+        // controlChannel.close();
+        // connection.close();
     }
 
 }
